@@ -1,0 +1,24 @@
+Migrating: 2019_10_03_001829_create_alunos_table
+
+   Illuminate\Database\QueryException  : SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'alunos' already exists (SQL: create table `alunos` (`id` int unsigned not null auto_increment primary key, `nome` varchar(255) not null, `matricula` varchar(10) not null, `cpf` varchar(11) not null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')
+
+  at C:\wamp64\www\crud\vendor\laravel\framework\src\Illuminate\Database\Connection.php:665
+    661|         // If an exception occurs when attempting to run a query, we'll format the error
+    662|         // message to include the bindings with SQL, which will make this exception a
+    663|         // lot more helpful to the developer instead of just the database's errors.
+    664|         catch (Exception $e) {
+  > 665|             throw new QueryException(
+    666|                 $query, $this->prepareBindings($bindings), $e
+    667|             );
+    668|         }
+    669|
+
+  Exception trace:
+
+  1   PDOException::("SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'alunos' already exists")
+      C:\wamp64\www\crud\vendor\laravel\framework\src\Illuminate\Database\Connection.php:459
+
+  2   PDOStatement::execute()
+      C:\wamp64\www\crud\vendor\laravel\framework\src\Illuminate\Database\Connection.php:459
+
+  Please use the argument -v to see more details.
