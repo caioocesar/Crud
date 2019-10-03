@@ -25,8 +25,5 @@ Route::post('/cadastro', 'controllerCrud@cadastrar');
 
 Route::post('/buscar', 'controllerCrud@buscar');
 
-
-Route::get('/notas', function () {
-    return view('notas');
-});
+Route::get('/notas', 'controllerCrud@exibeNotas');
 

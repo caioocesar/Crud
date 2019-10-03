@@ -18,7 +18,10 @@
 
         <!-- Styles -->
         <style>
-            form { padding-left: 0.5cm; padding-top: 1cm }
+            form { padding: 0.7cm  }
+            footer { font-size: 10px; padding:0.5cm;}
+            table { border-color: #d3d3d3 ; }
+            body { font-size:15px; border-color: #d3d3d3; }
         </style>
 
     </head>
@@ -45,8 +48,57 @@
             <a class="nav-link active" href="/notas" align="center">Notas</a>
           </li>
         </ul>
+        <br>
+  
 
+        @if(isset($message))
+            <p> {{$message}} </p> <br>
+        @endif
+
+        <table border = "1" class="table table-striped">
+        <tr>
+        <td>
+        @if(isset($media))
+           Média da turma: {{$media}} 
+        @endif
+        </td>
+
+        <td>
+        @if(isset($melhorAluno))
+            Melhor da turma: <br>{{$melhorAluno->first()->nome}}
+        @endif
+        </td>
+
+        <td>
+        @if(isset($piorAluno))
+            Pior da turma: <br>{{$piorAluno->first()->nome}}
+        @endif
+        </td>
+        </tr>
+
+
+
+        </table>
+
+        <table border="1" class="table table-striped">
         
-       
+        <tr>
+        @if(isset($aluno))
+        @foreach($aluno as $dadosAluno)
+            <td>{{'Nome: '. $dadosAluno['nome'].' '}}</td>
+        @endforeach
+        @endif
+       </tr>
+
+        <tr>
+        @if(isset($nota))
+        @foreach($nota as $dadosNota)
+            <td>{{'Nota(média): '. $dadosNota['valor']}}</td>
+        @endforeach
+        @endif
+       </tr>
+        
+      </table>
+
     </body>
 </html>

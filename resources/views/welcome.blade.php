@@ -18,8 +18,11 @@
 
         <!-- Styles -->
         <style>
-            form { padding-left: 0.5cm; padding-top: 1cm }
-            body { font-size:14px; }
+            form { padding: 0.7cm  }
+            body { font-size:12px; border-color: #d3d3d3}
+             table { border-color: #d3d3d3  }
+             footer { font-size: 10px; padding:0.5cm;}
+             h4 { padding-left : 0.7cm; }
         </style>
 
     </head>
@@ -29,7 +32,7 @@
 
 
         <br>
-        <ul class="nav nav-tabs" >
+        <ul class="nav nav-tabs">
           <li class="nav-item">
 
             <a class="nav-link active" href="/" align="center">Cadastrar</a>
@@ -39,7 +42,7 @@
 
               <div class="form-group">
                 <label>Nome</label>
-                <input type="text" class="form-control" name="nome" required>
+                <input type="text" class="form-control" name="nome" required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" >
               </div>
 
               <div class="form-group">
@@ -50,36 +53,36 @@
 
               <div class="form-group">
                 <label>Matrícula</label>
-                <input type="number" class="form-control" name="matricula"  required>
+                <input type="number" class="form-control" name="matricula"  required pattern="[0-9]{15}">
               </div>
 
               <div class="form-group">
-                <label>Nota</label>
-                <input type="number" class="form-control" name="nota"  required>
+                <label>Notas (separadas por espaço)</label>
+                <input type="text" class="form-control" name="nota" placeholder="8 9 10" required pattern="[0-9\s]+$">
               </div>
 
               <div class="form-group">
                 <label>Rua</label>
-                <input type="text" class="form-control" name="logradouro"  required>
+                <input type="text" class="form-control" name="logradouro"  required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$">
               </div>
 
               <div class="form-group">
                 <label>Número</label>
-                <input type="number" class="form-control" name="numero"  required>
+                <input type="number" class="form-control" name="numero"  required  pattern="[0-9]{10}">
               </div>
 
               <div class="form-group">
                 <label>Bairro</label>
-                <input type="text" class="form-control" name="bairro"  required>
+                <input type="text" class="form-control" name="bairro"  required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"">
               </div>
 
 
              
               <button type="submit" class="btn btn-primary">Salvar</button>
-              <button type="reset"class="btn btn-primary" value="Limpar">Limpar</button>
+              <button type="reset"class="btn btn-secondary" value="Limpar">Limpar</button>
             </form>
             @if(isset($message))
-                <p> {{$message}} </p>
+                <h4> {{$message}} </h4>
             @endif
           </li>
 
@@ -93,7 +96,9 @@
           </li>
         </ul>
 
-        
+        <footer>
+            Por Caio César, 2019.
+        </footer>
        
     </body>
 </html>

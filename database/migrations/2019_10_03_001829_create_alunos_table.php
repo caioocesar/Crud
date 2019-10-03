@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAlunosTable extends Migration
 {
-    
+
     /**
      * Run the migrations.
      *
@@ -20,7 +20,7 @@ class CreateAlunosTable extends Migration
             $table->string('matricula',10)->unique();
             $table->string('cpf',11)->unique();
             $table->integer('endereco_id')->unsigned();
-            $table->foreign('endereco_id')->references('id')->on('endereco');
+            //$table->foreign('endereco_id')->references('id')->on('endereco');
             $table->timestamps();
         });
     }

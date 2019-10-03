@@ -18,7 +18,10 @@
 
         <!-- Styles -->
         <style>
-            form { padding-left: 0.5cm; padding-top: 1cm }
+            form { padding: 0.7cm  }
+            footer { font-size: 10px; padding:0.5cm;}
+            table { border-color: #d3d3d3 ; }
+            body { font-size:15px; border-color: #d3d3d3; }
         </style>
 
     </head>
@@ -41,7 +44,7 @@
             <form class="form-horizontal" action="/buscar" method="post">
                  {{ csrf_field() }}
                 <div class="form-group">
-                    <input type="text" class="form-control" name="pesquisa" placeholder="Buscar">
+                    <input type="text" class="form-control" name="pesquisa" placeholder="Buscar" required>
                 </div>
 
                 <div class="form-group">
@@ -53,18 +56,44 @@
                      
                 </div>
                 
-                @if(isset($message))
+                 @if(isset($message))
                   <p> {{ $message }} </p>
                  @endif
-                 @if(isset($details))
-                  @foreach($details as $dado)
-                      {{'Nome: '. $dado['nome']}}<br>
-                      {{'CPF: '. $dado['cpf']}}<br>
-                      {{'Matrícula: '. $dado['matricula']}}<br>
+
+                
+                 @if(isset($aluno))
+                  <table border = "1" class="table table-striped">
+                  <tr>
+                  <td>
+                  @foreach($aluno as $dadosAluno)
+                      {{'Nome: '. $dadosAluno['nome']}}<br>
+                      {{'CPF: '. $dadosAluno['cpf']}}<br>
+                      {{'Matrícula: '. $dadosAluno['matricula']}}<br>
                   @endforeach
+                  @endif
+
+                  @if(isset($nota))
+                  @foreach($nota as $dadosNota)
+                      {{'Nota(média): '. $dadosNota['valor']}}<br>
+                  @endforeach
+                  @endif
+
+                  @if(isset($endereco))
+                  @foreach($endereco as $dadosEnd)
+                      {{'Rua: '. $dadosEnd['logradouro']}}<br>
+                      {{'Número: '. $dadosEnd['numero']}}<br>
+                      {{'Bairro: '. $dadosEnd['bairro']}}<br>
+                  @endforeach
+                   </td>
+                  </tr>
+
+                   </table>
+                   <button type="reset" class="btn btn-warning">Editar</button>
+                   <button type="reset" class="btn btn-danger">Excluir</button>
                  @endif
+                 
+
                 <button type="submit" class="btn btn-primary">Buscar</button>
-                s
             </form>
           </li>
 
@@ -74,7 +103,7 @@
           </li>
         </ul>
 
-        
+       
        
     </body>
 </html>
