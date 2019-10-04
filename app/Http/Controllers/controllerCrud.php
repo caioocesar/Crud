@@ -126,7 +126,7 @@ class controllerCrud extends Controller
     {
     	 $opcao = $request->input('opcao_busca');
     	 $pesquisa = $request->input('pesquisa');
-    	 
+
 
     	 if(!(isset($request))||empty($request->input('opcao_busca'))||empty($request->input('pesquisa'))) //VERIFICACAO FORMULARIO VAZIO
     	 {
@@ -188,8 +188,24 @@ class controllerCrud extends Controller
     	 $piorNota = Nota::where('valor', 'LIKE', $menor)->get();
     	 $piorAluno = Aluno::where('id', 'LIKE', $piorNota->first()->id)->get();
 
+    	 $lista = collect([]);
+    	 $count = 0;
+    	 foreach($aluno as $alunos)
+    	 {
+    	 	$lista->put('nome'.$count,$alunos['nome']);
+    	 	$count++;
+    	 }
+
+    	 $count = 0;
+    	  foreach($nota as $notas)
+    	 {
+    	 	$lista->put('nota'.$count,$notas['valor']);
+    	 	$count++;
+    	 }
+    	 //dd($lista);
+
     	 
-    	 	 return view('notas')->with('aluno',$aluno)->with('nota',$nota)->with('media',$averange)->with('melhorAluno',$melhorAluno)->with('piorAluno',$piorAluno);
+    	 	 return view('notas')->with('media',$averange)->with('melhorAluno',$melhorAluno)->with('piorAluno',$piorAluno)->with('lista',$lista)->with('count',$count);
     	 }
 		 return view('notas')->withMessage('Nenhuma nota encontrada!');
     }

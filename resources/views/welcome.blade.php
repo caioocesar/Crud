@@ -19,10 +19,12 @@
         <!-- Styles -->
         <style>
             form { padding: 0.7cm  }
-            body { font-size:12px; border-color: #d3d3d3}
+            body { font-size:12px; border-color: #d3d3d3;   }
              table { border-color: #d3d3d3  }
-             footer { font-size: 10px; padding:0.5cm;}
+             footer { font-size: 10px; padding:0.5cm; }
              h4 { padding-left : 0.7cm; }
+  
+
         </style>
 
     </head>
@@ -58,7 +60,7 @@
 
               <div class="form-group">
                 <label>Notas (separadas por espaço)</label>
-                <input type="text" class="form-control" name="nota" placeholder="8 9 10" required pattern="^(\s*?\d+(\.\d+)?)(\s*\s\s*?\d+(\.\d+)?)*$" maxlength="30">
+                <input type="text" class="form-control" name="nota" placeholder="8.5 9.25 10" required pattern="^(\s*?\d+(\.\d+)?)(\s*\s\s*?\d+(\.\d+)?)*$" maxlength="30">
               </div>
 
               <div class="form-group">

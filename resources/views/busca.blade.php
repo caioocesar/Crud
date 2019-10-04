@@ -21,10 +21,11 @@
             form { padding: 0.7cm  }
             footer { font-size: 10px; padding:0.5cm;}
             table { border-color: #d3d3d3 ; }
-            body { font-size:15px; border-color: #d3d3d3; }
+            body { font-size:14px; border-color: #d3d3d3; }
 
             
         </style>
+       
 
     </head>
 
@@ -95,7 +96,7 @@
                  @endif
                  
 
-                <button type="submit" class="btn btn-primary">Buscar</button>
+                <button type="submit" value ="buscar" name="botao1" class="btn btn-primary">Buscar</button>
             </form>
           </li>
 
