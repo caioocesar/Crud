@@ -22,6 +22,8 @@
             footer { font-size: 10px; padding:0.5cm;}
             table { border-color: #d3d3d3 ; }
             body { font-size:15px; border-color: #d3d3d3; }
+
+            
         </style>
 
     </head>
@@ -44,7 +46,7 @@
             <form class="form-horizontal" action="/buscar" method="post">
                  {{ csrf_field() }}
                 <div class="form-group">
-                    <input type="text" class="form-control" name="pesquisa" placeholder="Buscar" required>
+                    <input type="text" class="form-control" name="pesquisa" placeholder="Buscar" required pattern="[a-zA-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ 0-9]{1,}">
                 </div>
 
                 <div class="form-group">
@@ -88,7 +90,7 @@
                   </tr>
 
                    </table>
-                   <button type="reset" class="btn btn-warning">Editar</button>
+                   <button class="btn btn-warning">Editar</button>
                    <button type="reset" class="btn btn-danger">Excluir</button>
                  @endif
                  

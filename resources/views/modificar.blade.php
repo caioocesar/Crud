@@ -35,50 +35,50 @@
         <ul class="nav nav-tabs">
           <li class="nav-item">
 
-            <a class="nav-link active" href="/" align="center">Cadastrar</a>
+            <a class="nav-link active" href="/" align="center">Modificar dados</a>
 
-            <form name = "cadastro" action = "/cadastro" method="post"  class="form-horizontal">
+            <form name = "cadastro" action = "/modificar" method="post"  class="form-horizontal">
                 {{ csrf_field() }}
 
               <div class="form-group">
                 <label>Nome</label>
-                <input type="text" class="form-control" name="nome" required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" maxlength="255">
+                <input type="text" class="form-control" name="nome" required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" >
               </div>
 
               <div class="form-group">
                 <label>CPF (somente números)</label>
-                <input type="text" class="form-control" name="cpf" placeholder="12345678910" required pattern="[0-9]{11,11}" maxlength="11">
+                <input type="text" class="form-control" name="cpf" placeholder="12345678910" required pattern="[0-9]{11}">
               </div>
               
 
               <div class="form-group">
                 <label>Matrícula</label>
-                <input type="text" class="form-control" name="matricula"  required pattern="[0-9]{1,10}" maxlength="10">
+                <input type="number" class="form-control" name="matricula"  required pattern="[0-9]{15}">
               </div>
 
               <div class="form-group">
                 <label>Notas (separadas por espaço)</label>
-                <input type="text" class="form-control" name="nota" placeholder="8 9 10" required pattern="^(\s*?\d+(\.\d+)?)(\s*\s\s*?\d+(\.\d+)?)*$" maxlength="30">
+                <input type="text" class="form-control" name="nota" placeholder="8 9 10" required pattern="[0-9\s]+$">
               </div>
 
               <div class="form-group">
                 <label>Rua</label>
-                <input type="text" class="form-control" name="logradouro"  required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" maxlength="255">
+                <input type="text" class="form-control" name="logradouro"  required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$">
               </div>
 
               <div class="form-group">
                 <label>Número</label>
-                <input type="text" class="form-control" name="numero"  required  pattern="[0-9]{1,10}" maxlength="45">
+                <input type="number" class="form-control" name="numero"  required  pattern="[0-9]{10}">
               </div>
 
               <div class="form-group">
                 <label>Bairro</label>
-                <input type="text" class="form-control" name="bairro"  required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" maxlength="255" >
+                <input type="text" class="form-control" name="bairro"  required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"">
               </div>
 
 
              
-              <button type="submit" class="btn btn-primary">Salvar</button>
+              <button type="submit" class="btn btn-primary">Modificar</button>
               <button type="reset"class="btn btn-secondary" value="Limpar">Limpar</button>
             </form>
             @if(isset($message))
@@ -96,9 +96,6 @@
           </li>
         </ul>
 
-        <footer>
-            Por Caio César A. Sampaio, 2019.
-        </footer>
        
     </body>
 </html>
