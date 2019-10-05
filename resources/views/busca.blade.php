@@ -98,23 +98,23 @@
                   <table border = "1" class="table table-striped">
                  
                   @foreach($aluno as $dadosAluno)
-                      <tr><th>Nome</th><td>{{'Nome: '. $dadosAluno['nome']}}</td></tr>
-                      <tr><th>CPF</th><td>{{'CPF: '. $dadosAluno['cpf']}}</td></tr>
-                      <tr><th>Matrícula</th><td>{{'Matrícula: '. $dadosAluno['matricula']}}</td></tr>
+                      <tr><th>Nome</th><td>{{$dadosAluno['nome']}}</td></tr>
+                      <tr><th>CPF</th><td>{{$dadosAluno['cpf']}}</td></tr>
+                      <tr><th>Matrícula</th><td>{{$dadosAluno['matricula']}}</td></tr>
                   @endforeach
                   @endif
 
                   @if(isset($nota))
                   @foreach($nota as $dadosNota)
-                      <tr><th>Nota (média)</th><td>{{'Nota(média): '. $dadosNota['valor']}}</td></tr>
+                      <tr><th>Nota (média)</th><td>{{$dadosNota['valor']}}</td></tr>
                   @endforeach
                   @endif
 
                   @if(isset($endereco))
                   @foreach($endereco as $dadosEnd)
-                      <tr><th>Rua</th><td>{{'Rua: '. $dadosEnd['logradouro']}}</td></tr>
-                      <tr><th>Número</th><td>{{'Número: '. $dadosEnd['numero']}}</td></tr>
-                      <tr><th>Bairro</th><td>{{'Bairro: '. $dadosEnd['bairro']}}</td></tr>
+                      <tr><th>Rua</th><td>{{$dadosEnd['logradouro']}}</td></tr>
+                      <tr><th>Número</th><td>{{$dadosEnd['numero']}}</td></tr>
+                      <tr><th>Bairro</th><td>{{$dadosEnd['bairro']}}</td></tr>
                   @endforeach
                   
 

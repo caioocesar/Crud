@@ -84,7 +84,7 @@
             <p> {{$message}} </p> <br>
         @endif
 
-        <table border = "1" class="table table-striped">
+        <table border = "1" class="table table-striped" style="width: 60%;">
         <tr>
           <th>Média da turma</th>
           <th>Melhor da turma</th>
@@ -115,7 +115,7 @@
 
         </table>
         <p>Alunos:</p>
-        <table border="1" class="table table-striped">
+        <table border="1" class="table table-striped"style="width: 60%;">
         
         <th>Nome</th><th>Nota (média)</th>
         @if(isset($lista)&&isset($count))
