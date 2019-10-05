@@ -12,18 +12,31 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
+
+Route::get('/welcome', function () {
+    return view('/welcome');
+})->middleware('auth');
+
 
 
 Route::get('/busca', function () {
     return view('busca');
-});
+})->middleware('auth');
 
 
-Route::post('/cadastro', 'controllerCrud@cadastrar');
+Route::post('/cadastro', 'controllerCrud@cadastrar')->middleware('auth');
 
-Route::post('/buscar', 'controllerCrud@buscar');
+Route::post('/buscar', 'controllerCrud@buscar')->middleware('auth');
 
-Route::get('/notas', 'controllerCrud@exibeNotas');
+Route::get('/notas', 'controllerCrud@exibeNotas')->middleware('auth');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
