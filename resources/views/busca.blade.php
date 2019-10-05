@@ -96,29 +96,27 @@
                 
                  @if(isset($aluno))
                   <table border = "1" class="table table-striped">
-                  <tr>
-                  <td>
+                 
                   @foreach($aluno as $dadosAluno)
-                      {{'Nome: '. $dadosAluno['nome']}}<br>
-                      {{'CPF: '. $dadosAluno['cpf']}}<br>
-                      {{'Matrícula: '. $dadosAluno['matricula']}}<br>
+                      <tr><th>Nome</th><td>{{'Nome: '. $dadosAluno['nome']}}</td></tr>
+                      <tr><th>CPF</th><td>{{'CPF: '. $dadosAluno['cpf']}}</td></tr>
+                      <tr><th>Matrícula</th><td>{{'Matrícula: '. $dadosAluno['matricula']}}</td></tr>
                   @endforeach
                   @endif
 
                   @if(isset($nota))
                   @foreach($nota as $dadosNota)
-                      {{'Nota(média): '. $dadosNota['valor']}}<br>
+                      <tr><th>Nota (média)</th><td>{{'Nota(média): '. $dadosNota['valor']}}</td></tr>
                   @endforeach
                   @endif
 
                   @if(isset($endereco))
                   @foreach($endereco as $dadosEnd)
-                      {{'Rua: '. $dadosEnd['logradouro']}}<br>
-                      {{'Número: '. $dadosEnd['numero']}}<br>
-                      {{'Bairro: '. $dadosEnd['bairro']}}<br>
+                      <tr><th>Rua</th><td>{{'Rua: '. $dadosEnd['logradouro']}}</td></tr>
+                      <tr><th>Número</th><td>{{'Número: '. $dadosEnd['numero']}}</td></tr>
+                      <tr><th>Bairro</th><td>{{'Bairro: '. $dadosEnd['bairro']}}</td></tr>
                   @endforeach
-                   </td>
-                  </tr>
+                  
 
                    </table>
                    <button class="btn btn-warning">Editar</button>
