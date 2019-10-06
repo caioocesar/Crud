@@ -205,6 +205,17 @@ class controllerCrud extends Controller
     	 		return view('busca')->withMessage('Erro no formulário! (Campo(s) vazio(s))');
     	 	}
 
+    	$cpf = Aluno::where('cpf', 'LIKE', $request->input('cpfNovo'))->get();            //VERIFICAÇÃO SE JA EXISTE ESSE ALUNO
+    	$nome = Aluno::where('nome', 'LIKE', $request->input('nomeNovo'))->get();
+    	$matricula = Aluno::where('matricula', 'LIKE', $request->input('matriculaNovo'))->get();
+
+    	
+    	 if((count($cpf)>0 && ($cpf->first()->cpf)!=$request->input('cpf')) || (count($nome)>0 && ($nome->first()->nome)!=$request->input('nome')) || (count($matricula)>0 && ($matricula->first()->matricula)!=$request->input('matricula')))
+    	 {
+    	 	return view('busca')->withMessage('Nome, CPF ou matrícula já existe!');
+    	 }
+
+
 
 		 if(!is_numeric($request->input('numeroNovo'))) //VERIFICAÇÃO NUMERO RESIDENCIAL NAO NUMERICO
 		 {
