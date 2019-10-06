@@ -110,6 +110,7 @@ function confirmExclusao() {
                  @if(isset($aluno))
                   <table border = "1" class="table table-striped">
                  <br>
+                 <p style="font-size: 12px; text-align: center">(Modifique os campos abaixo para editar)</p>
                   @foreach($aluno as $dadosAluno)
                       <tr style="display:none;"><th>Nome</th><td><input type="text" class="form-control" name="nome" value="{{$dadosAluno['nome']}}"></td></tr>
                       <tr><th>Nome</th><td><input type="text" class="form-control" name="nomeNovo"  required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" maxlength="255"value="{{$dadosAluno['nome']}}"></td></tr>
@@ -139,8 +140,8 @@ function confirmExclusao() {
                   
 
                    </table>
-                   <button type="submit" value="editar" name="botao" class="btn btn-warning">Editar</button>
-                   <button type="submit" value="excluir" name="botao" class="btn btn-danger"">Excluir</button>
+                   <button type="submit" value="editar"  onclick="return confirm('Tem certeza que deseja editar?')" name="botao" class="btn btn-warning">Editar</button>
+                   <button type="submit" value="excluir" onclick="return confirm('Tem certeza que deseja excluir?')" name="botao" class="btn btn-danger"">Excluir</button>
                    <a href='/busca' class="btn btn-primary">Voltar</a>
                    
                  @endif
