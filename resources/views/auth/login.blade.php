@@ -84,7 +84,10 @@
                                     {{ __('Login') }}
                                 </button>
 
-                               
+                                 @if (Route::has('register'))
+                                    <a class="btn btn-secondary" href="{{ route('register') }}">{{ __('Registrar') }}</a>
+                                @endif
+
                             </div>
                         </div>
                     </form>
