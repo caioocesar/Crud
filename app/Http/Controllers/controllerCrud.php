@@ -294,7 +294,7 @@ class controllerCrud extends Controller
     	
     }
 
-    public function delete(Request $request)
+    public function delete(Request $request) //EXCLUIR ALUNO
     {
     	$aluno = Aluno::where('nome', 'LIKE', $request->input('nome'))->where('cpf', 'LIKE', $request->input('cpf'))->where('matricula', 'LIKE', $request->input('matricula'))->get();
 		$endereco = Endereco::where('logradouro', 'LIKE', $request->input('logradouro'))->where('numero', 'LIKE', $request->input('numero'))->where('bairro', 'LIKE', $request->input('bairro'))->where('id', 'LIKE', $aluno->first()->endereco_id)->get();

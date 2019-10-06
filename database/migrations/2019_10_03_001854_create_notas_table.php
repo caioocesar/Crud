@@ -13,11 +13,11 @@ class CreateNotasTable extends Migration
      */
     public function up()
     {
-        Schema::create('notas', function (Blueprint $table) {
+        Schema::create('nota', function (Blueprint $table) {
             $table->increments('id');
             $table->double('valor');
             $table->integer('aluno_id')->unsigned();
-            $table->foreign('aluno_id')->references('id')->on('alunos');
+            $table->foreign('aluno_id')->references('id')->on('aluno');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateNotasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notas');
+        Schema::dropIfExists('nota');
     }
 }

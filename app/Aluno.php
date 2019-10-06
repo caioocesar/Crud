@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class aluno extends Model
 {
-    protected $table = 'alunos';
+    protected $table = 'aluno';
 
     protected $primaryKey = "id";
   
@@ -20,6 +20,6 @@ class aluno extends Model
 	];
 
 	function endereco(){
-   		return $this->hasOne('App\Endereco','endereco_id','id');
+   		return $this->hasOne('App/Endereco','endereco_id','id');
 	}
 }

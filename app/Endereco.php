@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class endereco extends Model
 {
-    protected $table = 'enderecos';
+    protected $table = 'endereco';
+     protected $primaryKey = "id";
 
     
 
@@ -17,6 +18,6 @@ class endereco extends Model
 	];
 
 	function aluno(){
-   		return $this->belongsTo('App\Aluno');
+   		return $this->belongsTo('App/Aluno');
 	}
 }

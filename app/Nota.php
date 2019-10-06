@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class nota extends Model
 {
-    protected $table = 'notas';
+    protected $table = 'nota';
+     protected $primaryKey = "id";
 
      protected $fillable = [
 	 'valor',
@@ -15,6 +16,6 @@ class nota extends Model
 
 	public function aluno()
     {
-        return $this->hasOne('App\Aluno'); 
+        return $this->hasOne('App/Aluno'); 
     }
 }

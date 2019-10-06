@@ -14,7 +14,7 @@ class CreateAlunosTable extends Migration
      */
     public function up()
     {
-        Schema::create('alunos', function (Blueprint $table) {
+        Schema::create('aluno', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome',255);
             $table->string('matricula',10)->unique();
@@ -32,6 +32,6 @@ class CreateAlunosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alunos');
+        Schema::dropIfExists('aluno');
     }
 }
