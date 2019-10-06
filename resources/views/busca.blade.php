@@ -25,12 +25,23 @@
 
             
         </style>
+
+        <script>
+function confirmExclusao() {
+   if (confirm("Tem certeza que deseja editar estes dados?")) {
+      window.location.href="/welcome";
+   }
+}
+</script>
        
 
     </head>
 
 
-        @guest
+       
+    <body>
+
+ @guest
             <li class="nav-item" style="list-style-type: none;">
                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
@@ -59,7 +70,6 @@
             </li>
         @endguest
 
-    <body>
 
 
 
@@ -72,10 +82,14 @@
             
           </li>
 
+
           <li class="nav-item">
             <a class="nav-link active" href="/busca" align="center" >Busca de aluno</a>
+
             <form class="form-horizontal" action="/buscar" method="post">
+
                  {{ csrf_field() }}
+                 @if(!isset($option))
                 <div class="form-group">
                     <input type="text" class="form-control" name="pesquisa" placeholder="Buscar" required pattern="[a-zA-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ 0-9]{1,}">
                 </div>
@@ -88,44 +102,58 @@
                     </select>
                      
                 </div>
+                @endif
                 
-                 @if(isset($message))
-                  <p> {{ $message }} </p>
-                 @endif
 
-                
+
+            
                  @if(isset($aluno))
                   <table border = "1" class="table table-striped">
-                 
+                 <br>
                   @foreach($aluno as $dadosAluno)
-                      <tr><th>Nome</th><td>{{$dadosAluno['nome']}}</td></tr>
-                      <tr><th>CPF</th><td>{{$dadosAluno['cpf']}}</td></tr>
-                      <tr><th>Matrícula</th><td>{{$dadosAluno['matricula']}}</td></tr>
+                      <tr style="display:none;"><th>Nome</th><td><input type="text" class="form-control" name="nome" value="{{$dadosAluno['nome']}}"></td></tr>
+                      <tr><th>Nome</th><td><input type="text" class="form-control" name="nomeNovo"  required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" maxlength="255"value="{{$dadosAluno['nome']}}"></td></tr>
+                      <tr style="display:none;"><th>CPF</th><td><input type="text" class="form-control" name="cpf" value="{{$dadosAluno['cpf']}}"></td></tr>
+                      <tr><th>CPF</th><td><input type="text" class="form-control" name="cpfNovo" required pattern="[0-9]{11,11}" maxlength="11"  value="{{$dadosAluno['cpf']}}"></td></tr>
+                      <tr style="display:none;"><th>Matrícula</th><td><input type="text" class="form-control" name="matricula" value="{{$dadosAluno['matricula']}}"></td></tr>
+                      <tr><th>Matrícula</th><td><input type="text" class="form-control" name="matriculaNovo" required pattern="[0-9]{1,10}" maxlength="10" value="{{$dadosAluno['matricula']}}"></td></tr>
                   @endforeach
                   @endif
 
                   @if(isset($nota))
                   @foreach($nota as $dadosNota)
-                      <tr><th>Nota (média)</th><td>{{$dadosNota['valor']}}</td></tr>
+                      <tr style="display:none;"><th>Nota (média)</th><td><input type="text" class="form-control" name="nota" value="{{$dadosNota['valor']}}"></td></tr>
+                      <tr><th>Nota (média)</th><td><input type="text" class="form-control" name="notaNovo" value="{{$dadosNota['valor']}}" required pattern="^(\s*?\d+(\.\d+)?)(\s*\s\s*?\d+(\.\d+)?)*$" maxlength="30"></td></tr>
                   @endforeach
                   @endif
 
                   @if(isset($endereco))
                   @foreach($endereco as $dadosEnd)
-                      <tr><th>Rua</th><td>{{$dadosEnd['logradouro']}}</td></tr>
-                      <tr><th>Número</th><td>{{$dadosEnd['numero']}}</td></tr>
-                      <tr><th>Bairro</th><td>{{$dadosEnd['bairro']}}</td></tr>
+                      <tr style="display:none;"><th>Rua</th><td><input type="text" class="form-control" name="logradouro" value="{{$dadosEnd['logradouro']}}"></td></tr>
+                      <tr><th>Rua</th><td><input type="text" class="form-control" name="logradouroNovo" value="{{$dadosEnd['logradouro']}}" required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" maxlength="255""></td></tr>
+                      <tr style="display:none;"><th>Número</th><td><input type="text" class="form-control" name="numero" value="{{$dadosEnd['numero']}}"></td></tr>
+                      <tr><th>Número</th><td><input type="text" class="form-control" name="numeroNovo" value="{{$dadosEnd['numero']}}"  required  pattern="[0-9]{1,10}" maxlength="45"></td></tr>
+                      <tr style="display:none;"><th>Bairro</th><td><input type="text" class="form-control" name="bairro" value="{{$dadosEnd['bairro']}}"></td></tr>
+                      <tr><th>Bairro</th><td><input type="text" class="form-control" name="bairroNovo" value="{{$dadosEnd['bairro']}}" required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" maxlength="255"></td></tr>
                   @endforeach
                   
 
                    </table>
-                   <button class="btn btn-warning">Editar</button>
-                   <button type="reset" class="btn btn-danger">Excluir</button>
+                   <button type="submit" value="editar" name="botao" class="btn btn-warning">Editar</button>
+                   <button type="submit" value="excluir" name="botao" class="btn btn-danger"">Excluir</button>
+                   <a href='/busca' class="btn btn-primary">Voltar</a>
+                   
                  @endif
                  
+                @if(!isset($aluno))
+                <button type="submit" value="buscar" name="botao" class="btn btn-primary">Buscar</button>
+                @endif
 
-                <button type="submit" value ="buscar" name="botao1" class="btn btn-primary">Buscar</button>
             </form>
+
+                 @if(isset($message))
+                  <p style="text-align: center; font-size: 16px"> {{ $message }} </p>
+                 @endif
           </li>
 
 

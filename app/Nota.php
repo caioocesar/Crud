@@ -15,6 +15,6 @@ class nota extends Model
 
 	public function aluno()
     {
-        return $this->hasOne('App\Aluno'); //Apontando para seu model endereco
+        return $this->hasOne('App\Aluno'); 
     }
 }

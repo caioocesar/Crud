@@ -26,6 +26,8 @@
 
     </head>
 
+    <body>
+      
         @guest
             <li class="nav-item" style="list-style-type: none;">
                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -55,7 +57,7 @@
             </li>
         @endguest
 
-    <body>
+
 
 
 

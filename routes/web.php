@@ -28,7 +28,7 @@ Route::get('/busca', function () {
 
 Route::post('/cadastro', 'controllerCrud@cadastrar')->middleware('auth');
 
-Route::post('/buscar', 'controllerCrud@buscar')->middleware('auth');
+Route::post('/buscar', 'controllerCrud@operacoes')->middleware('auth');
 
 Route::get('/notas', 'controllerCrud@exibeNotas')->middleware('auth');
 

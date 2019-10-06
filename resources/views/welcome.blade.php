@@ -30,7 +30,9 @@
         </style>
 
     </head>
-    
+ 
+     <body>
+        
          @guest
             <li class="nav-item" style="list-style-type: none;">
                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -60,7 +62,7 @@
             </li>
         @endguest
 
-    <body>
+
 
 
 
@@ -106,7 +108,7 @@
 
               <div class="form-group">
                 <label>Bairro</label>
-                <input type="text" class="form-control" name="bairro"  required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" maxlength="255" >
+                <input type="text" class="form-control" name="bairro"  required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" maxlength="255">
               </div>
 
 
